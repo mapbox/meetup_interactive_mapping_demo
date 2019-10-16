@@ -1,6 +1,6 @@
 # Hands on! 🖐 Mapbox Interactive Mapping Demo
 
-This repository containst the project files for the Interactive Mapping Workshop. Create a fork and let us know what you create! 
+This repository contains the project files for the Interactive Mapping Workshop. Create a fork and let us know what you create! 
 
 Here's how to get started:
 
