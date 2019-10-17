@@ -1,8 +1,8 @@
 const map = window.map = new mapboxgl.Map({
     container: 'map',
-    zoom: 12.5,
-    center: [-77.01866, 38.888],
-    style: 'mapbox://styles/mapbox/streets-v10',
+    zoom: 10,
+    center: [-122.2738, 37.8251],
+    style: 'mapbox://styles/brandihaskins/ck1sg2tq924lw1cmygrgpugv7',
     hash: true
 });
 
@@ -46,7 +46,7 @@ map.on('load', async function () {
     });
 
     //Get a username
-    const userName = await getInput("What's your name?", 20, true);
+    const userName = await getInput("Welcome to our collaborative map! What's your name?", 20, true);
 
 
     // The name of our marker data source for our map
@@ -99,7 +99,7 @@ map.on('load', async function () {
         userMarkers.forEach((userMarker) => {
             geoJsonMarkers["features"].push(featureFromUserMarker(userMarker));
         })
-        console.log(geoJsonMarkers);
+        console.log('GeoJSON source updated.');
 
         return geoJsonMarkers;
     }
@@ -114,8 +114,10 @@ map.on('load', async function () {
         if (addBlocker==false){
             const newMarker = event.lngLat;
             newMarker.name = userName;
-            newMarker.description = await getInput("Enter a description for this location, or cancel", 256, false);
+            newMarker.description = getInput("Enter a description:", 256, false);
+            if(newMarker.description != null){
             await sendMarkerToServer(newMarker);
+            }
             await updateMapFromServer();
         }
     });
