@@ -22,7 +22,7 @@ function getInput(promptMsg, maxLength, required) {
                 return null;
             }        // return null if no answer is required, or reprompt.
 
-            promptText = 'Sorry, we need an answer.' + promptMsg + '\n Enter up to ' + maxLength + ' Characters, letters and spaces only.';
+            promptText = 'Sorry, we need an answer.\n\n' + promptMsg + '\n Enter up to ' + maxLength + ' Characters, letters and spaces only.';
             
         }
         // check entry for special characters and length
